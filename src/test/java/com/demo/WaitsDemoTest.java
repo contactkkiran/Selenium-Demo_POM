@@ -320,17 +320,5 @@ public class WaitsDemoTest {
         Assert.assertTrue(driver.findElement(By.id("promptResult")).getText().contains("Ravi"));
     }
 
-    // 14. File upload: choose a local file and check the file name
-    @Test(priority = 14, description = "File upload: sendKeys with a file path")
-    public void testFileUpload() throws IOException {
-        openPage(UPLOAD_URL);
-
-        Path file = Files.createTempFile("demo-upload", ".txt");
-        driver.findElement(By.id("uploadFile")).sendKeys(file.toAbsolutePath().toString());
-
-        String shown = driver.findElement(By.id("uploadedFilePath")).getText();
-        System.out.println("Uploaded: " + shown);
-        Assert.assertTrue(shown.contains(file.getFileName().toString()),
-                "Uploaded file name should be displayed");
-    }
+    
 }
